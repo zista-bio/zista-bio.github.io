@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ثبت نام | زیستا</title>
+
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Vazirmatn',sans-serif;
+}
+
+body{
+background:#f5f8fc;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+padding:20px;
+}
+
+.container{
+background:white;
+width:100%;
+max-width:450px;
+padding:40px;
+border-radius:25px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.logo{
+text-align:center;
+margin-bottom:20px;
+}
+
+.logo img{
+width:90px;
+}
+
+h1{
+text-align:center;
+color:#062250;
+margin-bottom:10px;
+}
+
+.subtitle{
+text-align:center;
+color:#64748b;
+margin-bottom:30px;
+}
+
+.input-group{
+margin-bottom:18px;
+}
+
+label{
+display:block;
+margin-bottom:8px;
+font-weight:bold;
+color:#334155;
+}
+
+input{
+width:100%;
+padding:14px;
+border:1px solid #cbd5e1;
+border-radius:12px;
+font-size:15px;
+}
+
+input:focus{
+outline:none;
+border-color:#00b978;
+}
+
+button{
+width:100%;
+background:#00b978;
+color:white;
+border:none;
+padding:15px;
+border-radius:12px;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+}
+
+button:hover{
+background:#009966;
+}
+
+.back{
+display:block;
+text-align:center;
+margin-top:20px;
+color:#00b978;
+text-decoration:none;
+}
+
+.message{
+margin-top:15px;
+text-align:center;
+font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="logo">
+<img src="logo.png" alt="زیستا">
+</div>
+
+<h1>ثبت نام دانش آموز</h1>
+
+<p class="subtitle">
+کد دانش آموزی و شماره تماس خود را وارد کنید
+</p>
+
+<form id="registerForm">
+
+<div class="input-group">
+<label>کد دانش آموزی</label>
+<input type="text" id="studentCode" required>
+</div>
+
+<div class="input-group">
+<label>شماره تماس</label>
+<input type="tel" id="phone" required>
+</div>
+
+<button type="submit">
+ثبت اطلاعات
+</button>
+
+</form>
+
+<div id="message" class="message"></div>
+
+<a href="index.html" class="back">
+بازگشت به صفحه اصلی
+</a>
+
+</div>
+
+<script>
+
+const validCodes = [
+"1001",
+"1002",
+"1003",
+"1004",
+"1005"
+];
+
+document.getElementById("registerForm")
+.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+let code=document.getElementById("studentCode").value;
+let phone=document.getElementById("phone").value;
+
+if(validCodes.includes(code)){
+
+document.getElementById("message").innerHTML=
+"✅ ثبت نام با موفقیت انجام شد";
+
+localStorage.setItem("studentCode",code);
+localStorage.setItem("phone",phone);
+
+setTimeout(()=>{
+window.location.href="index.html";
+},1500);
+
+}else{
+
+document.getElementById("message").innerHTML=
+"❌ کد دانش آموزی معتبر نیست";
+
+}
+
+});
+</script>
+
+</body>
+</html>
