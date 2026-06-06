@@ -1,71 +1,233 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>زیستا</title>
+<title>زیستا | آموزش زیست شناسی</title>
 
 <style>
-body{
+
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
 font-family:tahoma;
-background:#f4f7fc;
+}
+
+body{
+background:#f5f8fc;
+color:#222;
+}
+
+header{
+background:#002b6f;
+padding:15px 50px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+height:70px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:0 15px;
+font-size:18px;
 }
 
 .hero{
-background:linear-gradient(135deg,#0d47a1,#1565c0);
-color:white;
-padding:80px 20px;
-text-align:center;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:60px;
+background:white;
+}
+
+.hero-text{
+width:50%;
+}
+
+.hero-image{
+width:45%;
+}
+
+.hero-image img{
+width:100%;
+border-radius:30px;
 }
 
 .hero h1{
-font-size:60px;
-margin:0;
+font-size:80px;
+color:#003b8e;
+margin-bottom:10px;
+}
+
+.hero h2{
+color:#00a86b;
+margin-bottom:20px;
 }
 
 .hero p{
-font-size:22px;
+font-size:20px;
+line-height:2;
+margin-bottom:25px;
 }
 
 .btn{
 display:inline-block;
-margin-top:20px;
-padding:12px 28px;
-background:#ffc107;
-color:#0d47a1;
+padding:15px 35px;
+background:#00b978;
+color:white;
 text-decoration:none;
-border-radius:30px;
-font-weight:bold;
+border-radius:12px;
+font-size:18px;
 }
 
-.section{
-padding:50px 20px;
-max-width:1100px;
-margin:auto;
+.stats{
+display:flex;
+justify-content:center;
+gap:20px;
+padding:40px;
+flex-wrap:wrap;
+}
+
+.stat{
+background:white;
+width:220px;
+padding:25px;
+border-radius:20px;
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+text-align:center;
+}
+
+.stat h3{
+font-size:38px;
+color:#0066ff;
+}
+
+.section-title{
+text-align:center;
+font-size:40px;
+margin:50px 0;
+color:#002b6f;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+padding:0 50px;
 }
 
 .card{
 background:white;
-padding:25px;
+padding:30px;
 border-radius:20px;
-box-shadow:0 5px 15px rgba(0,0,0,.1);
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+text-align:center;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card h3{
+margin-bottom:15px;
+color:#003b8e;
+}
+
+.about{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:60px;
+margin-top:60px;
+background:#eaf9f3;
+}
+
+.about img{
+width:40%;
+border-radius:25px;
+}
+
+.about-text{
+width:55%;
+}
+
+.about-text h2{
 margin-bottom:20px;
+color:#003b8e;
 }
 
-.card h2{
-color:#0d47a1;
+.about-text p{
+line-height:2;
+font-size:18px;
 }
 
-.footer{
-background:#0d47a1;
+.instagram{
+margin:50px;
+padding:35px;
+border-radius:20px;
+background:linear-gradient(135deg,#f6d6ff,#d8e6ff);
+text-align:center;
+}
+
+footer{
+background:#002b6f;
 color:white;
 text-align:center;
-padding:20px;
-margin-top:40px;
+padding:30px;
+margin-top:50px;
 }
-</style>
 
+@media(max-width:768px){
+
+header{
+padding:15px;
+flex-direction:column;
+}
+
+nav{
+margin-top:15px;
+}
+
+.hero{
+flex-direction:column-reverse;
+padding:20px;
+}
+
+.hero-text,
+.hero-image{
+width:100%;
+text-align:center;
+}
+
+.hero h1{
+font-size:55px;
+}
+
+.about{
+flex-direction:column;
+padding:20px;
+}
+
+.about img,
+.about-text{
+width:100%;
+}
+
+.cards{
+padding:20px;
+}
+
+}
+
+</style>
 </head>
 
 <body>
