@@ -175,22 +175,27 @@ let phone=document.getElementById("phone").value;
 
 if(validCodes.includes(code)){
 
-document.getElementById("message").innerHTML=
-"✅ ثبت نام با موفقیت انجام شد";
+document.getElementById("registerForm").addEventListener("submit", function(e){
 
-localStorage.setItem("studentCode",code);
-localStorage.setItem("phone",phone);
+    e.preventDefault();
 
-setTimeout(()=>{
-window.location.href="index.html";
-},1500);
+    const code = document.getElementById("studentCode").value.trim().toUpperCase();
+    const phone = document.getElementById("phone").value.trim();
 
-}else{
+    if(validCodes.includes(code)){
 
-document.getElementById("message").innerHTML=
-"❌ کد دانش آموزی معتبر نیست";
+        alert("ثبت نام با موفقیت انجام شد");
 
-}
+        localStorage.setItem("studentCode", code);
+        localStorage.setItem("phone", phone);
+
+        window.location.href = "index.html";
+
+    }else{
+
+        alert("کد دانش آموزی نامعتبر است");
+
+    }
 
 });
 </script>
