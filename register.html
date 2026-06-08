@@ -93,14 +93,13 @@ button:hover { background: #009966; }
   <a href="index.html" class="back">بازگشت به صفحه اصلی</a>
 </div>
 
-<!-- اضافه کردن کتابخانه Supabase -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
-  // -------------------- این دو خط را با مقادیر واقعی از ساپابیس جایگزین کن --------------------
-  const SUPABASE_URL = 'https://your-project.supabase.co';     // ← URL پروژه خودت
-  const SUPABASE_ANON_KEY = 'your-anon-key';                  // ← کلید عمومی (anon key)
-  // ---------------------------------------------------------------------------------------
+  // ---------- مقادیر واقعی ساپابیس ----------
+  const SUPABASE_URL = 'https://rdlcccgbtfcxoqqvdnhi.supabase.co';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJkbGNjY2didGZjeG9xcXZkbmhpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA4MTM4NzAsImV4cCI6MjA5NjM4OTg3MH0.6XX65Od1uLA_4-H4e4HIF4wcvWOYgMyCBvbIQjW3Bec';
+  // ---------------------------------------
 
   const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
   const form = document.getElementById('registerForm');
@@ -118,7 +117,7 @@ button:hover { background: #009966; }
       return;
     }
 
-    // 1. بررسی وجود کد در جدول students
+    // 1. بررسی وجود کد
     const { data: student, error } = await supabase
       .from('students')
       .select('code')
@@ -138,7 +137,7 @@ button:hover { background: #009966; }
       return;
     }
 
-    // 2. به‌روزرسانی شماره تماس برای این کد
+    // 2. به‌روزرسانی شماره تماس
     const { error: updateError } = await supabase
       .from('students')
       .update({ phone: phone })
@@ -151,15 +150,12 @@ button:hover { background: #009966; }
       return;
     }
 
-    // موفقیت
     messageDiv.innerText = '✅ ثبت نام با موفقیت انجام شد';
     messageDiv.style.color = '#00b978';
 
-    // ذخیره در localStorage برای استفاده بعدی
     localStorage.setItem('studentCode', code);
     localStorage.setItem('phone', phone);
 
-    // هدایت به صفحه اصلی بعد از 1 ثانیه
     setTimeout(() => {
       window.location.href = 'index.html';
     }, 1000);
